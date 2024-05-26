@@ -43,6 +43,8 @@ void EVMObjectCompiler::compile(
 )
 {
 	EVMObjectCompiler compiler(_assembly, _dialect, _eofVersion);
+	// always ir-optimized
+  _optimize = true;
 	compiler.run(_object, _optimize);
 }
 
