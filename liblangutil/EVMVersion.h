@@ -60,6 +60,7 @@ public:
 	static EVMVersion paris() { return {Version::Paris}; }
 	static EVMVersion shanghai() { return {Version::Shanghai}; }
 	static EVMVersion cancun() { return {Version::Cancun}; }
+  static EVMVersion prague() { return {Version::Prague}; }
 
 	static std::optional<EVMVersion> fromString(std::string const& _version)
 	{
@@ -88,6 +89,7 @@ public:
 		case Version::Paris: return "paris";
 		case Version::Shanghai: return "shanghai";
 		case Version::Cancun: return "cancun";
+    case Version::Prague: return "prague";
 		}
 		return "INVALID";
 	}
@@ -115,7 +117,7 @@ public:
 	bool canOverchargeGasForCall() const { return *this >= tangerineWhistle(); }
 
 private:
-	enum class Version { Homestead, TangerineWhistle, SpuriousDragon, Byzantium, Constantinople, Petersburg, Istanbul, Berlin, London, Paris, Shanghai, Cancun };
+	enum class Version { Homestead, TangerineWhistle, SpuriousDragon, Byzantium, Constantinople, Petersburg, Istanbul, Berlin, London, Paris, Shanghai, Cancun, Prague };
 
 	EVMVersion(Version _version): m_version(_version) {}
 
